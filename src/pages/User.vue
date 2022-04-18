@@ -1,13 +1,17 @@
 <template>
   <div>
     <p>User</p>
+    <button>add</button>
   </div>
 
-  <ul>
-    <li v-for="item in users" v-bind:key="item.id">
-      <a :href="`users/${item.id}`"> {{ item.name }} / {{ item.email }} </a>
-    </li>
-  </ul>
+  <div v-for="item in users.content" v-bind:key="item.seq">
+    <div>
+      <router-link :to="`/user/${ item.seq }`">
+        {{ item.name }}
+      </router-link>
+    </div>
+  </div>
+
 </template>
 
 <script>

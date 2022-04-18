@@ -1,7 +1,9 @@
 <template>
-  <router-link to="/"><span class="menu">Home</span></router-link>
-  <router-link to="/user"><span class="menu">User</span></router-link>
-  <span class="time">{{ realTime }}</span>
+  <div class="btn">
+    <router-link to="/"><span class="menu">Home</span></router-link>
+    <router-link to="/user"><span class="menu">User</span></router-link>
+    <span class="menu">{{ realTime }}</span>
+  </div>
 </template>
 
 <script>
@@ -21,16 +23,16 @@ export default {
 </script>
 
 <style scoped>
+  .btn {
+    margin-top: 10px;
+  }
   .menu {
     color: red;
     border: 1px solid black;
-    margin: 5px;
+    margin-right: 5px;
     padding: 5px;
   }
   a {
     text-decoration: none;
-  }
-  .time {
-    text-align: left;
   }
 </style>

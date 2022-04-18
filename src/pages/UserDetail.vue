@@ -1,10 +1,15 @@
 <template>
   <div>
-    UserDetail
+    <p>UserDetail</p>
+    <p>ID: {{ user.id}}</p>
+    <p>NAME: {{ user.name}}</p>
+    <p>PHONE: {{ user.phone}}</p>
   </div>
 </template>
 
 <script>
+
+import {mapState} from "vuex";
 
 export default {
   name: "UserDetail",
@@ -13,8 +18,13 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      user: state => state.user.data,
+    }),
   },
   created() {
+    const seq = this.$route.params.seq;
+    this.$store.dispatch('FETCH_USER_DETAIL', seq);
   },
 
 }
