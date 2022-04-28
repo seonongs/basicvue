@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+services:
+  - docker
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t vue-app -f Dockerfile .
+script:
+  - docker run -e CI=true vue-app npm run serve -- --coverage
+
+after_success:
+  - echo "Test success"
